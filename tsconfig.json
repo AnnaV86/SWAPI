@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "ES2020",
+		"moduleResolution": "node",
+		"lib": ["DOM", "ESNext"],
+		"jsx": "react-jsx",
+		"newLine": "CRLF",
+		"strict": true,
+		"noEmit": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"typeRoots": ["./declarations"],
+		"allowJs": true
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "commonjs"
+		},
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"],
+}
