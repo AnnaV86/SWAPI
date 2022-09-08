@@ -1,0 +1,43 @@
+@mixin sizeBlock($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+// Display-flex
+@mixin displayFlexCenter($flex) {
+	display: flex;
+	flex-direction: $flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin displayFlex($flex, $just, $align) {
+	display: flex;
+	flex-direction: $flex;
+	justify-content: $just;
+	align-items: $align;
+}
+
+// Font
+@mixin font($size, $line) {
+	font-size: $size;
+	line-height: $line;
+}
+
+//button
+@mixin button($colorBg, $colorText, $colorSh) {
+	border: unset;
+	border-radius: 5px;
+	background-color: unset;
+	color: $colorText;
+	background-color: $colorBg;
+	box-shadow: 2px 2px 2px 2px $colorSh;
+	cursor: pointer;
+}
+
+@mixin buttonHover($colorBg, $colorText, $colorSh) {
+	background-color: $colorBg;
+	color: $colorText;
+	font-weight: 800;
+	box-shadow: 2px 2px 12px 5px $colorSh;
+}

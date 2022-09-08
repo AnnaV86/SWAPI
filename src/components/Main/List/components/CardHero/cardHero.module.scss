@@ -1,0 +1,16 @@
+@import '../../../../../style/mixins.scss';
+@import '../../../../../style/variables.scss';
+
+.item {
+	height: 50px;
+	list-style: square;
+	cursor: pointer;
+
+	.title {
+		margin: 0;
+
+		&:hover {
+			text-shadow: $colorMain 0 0 20px;
+		}
+	}
+}

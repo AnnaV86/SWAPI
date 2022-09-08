@@ -1,17 +1,15 @@
 import React, { createContext } from 'react';
-import { IFilm, IHero, IPlanet } from '../models';
+import { IHero } from '../models';
 
 interface IContext {
 	currentPeople: IHero[] | [];
 	onClickVisited: (hero: IHero) => void;
-	visitedHero: IHero[] | [];
-	planets: IPlanet[] | [];
-	films: IFilm[] | [];
+	visitedHeroes: IHero[] | [];
+	isFetching: boolean;
 }
 export const Context = createContext<IContext>({
 	currentPeople: [],
 	onClickVisited: () => {},
-	visitedHero: [],
-	planets: [],
-	films: []
+	visitedHeroes: [],
+	isFetching: true
 });

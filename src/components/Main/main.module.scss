@@ -1,0 +1,11 @@
+@import '../../style/mixins.scss';
+@import '../../style/variables.scss';
+
+.main {
+	@include displayFlexCenter(column);
+
+	.title {
+		@include font(100px, 16px);
+		text-shadow: $colorMain 0 0 50px;
+	}
+}

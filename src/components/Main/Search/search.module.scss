@@ -1,0 +1,39 @@
+@import '../../../style/mixins.scss';
+@import '../../../style/variables.scss';
+
+.container {
+	@include displayFlexCenter(column);
+
+	input {
+		@include sizeBlock(800px, 50px);
+		background-color: unset;
+		color: $colorMain;
+		border-radius: 5px;
+		border: 1px solid $colorMain;
+		box-shadow: 2px 2px 2px 2px $colorMain;
+		padding-left: 20px;
+	}
+
+	input::placeholder {
+		padding-left: 20px;
+		box-sizing: border-box;
+	}
+
+	.wrapper {
+		@include sizeBlock(450px, 100px);
+		@include displayFlex(row, space-between, center);
+		margin-top: 40px;
+	}
+
+	.button {
+		@include sizeBlock(200px, 50px);
+		@include button($bgButton, $colorMain, $colorMain);
+		&:hover {
+			@include buttonHover($bgButtonHover, $colorButtonHover, $colorMain);
+		}
+		&:focus {
+			outline: none;
+			@include buttonHover($bgButtonHover, $colorButtonHover, $colorMain);
+		}
+	}
+}

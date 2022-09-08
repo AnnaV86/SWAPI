@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { getFilmsFetch, getPeopleFetch, getPlanetsFetch } from './api';
+import { getPeopleFetch } from './api';
 import { Hero, Main } from './components';
 import { Context } from './contexts/Context';
-import { IHero, IPlanet, IFilm } from './models';
+import { IHero } from './models';
 
 export const App = () => {
 	const [currentPeople, setCurrentPeople] = useState<IHero[]>([]);
-	const [visitedHero, setVisitedHero] = useState<IHero[]>([]);
-	const [planets, setPlanets] = useState<IPlanet[]>([]);
-	const [films, setFilms] = useState<IFilm[]>([]);
+	const [visitedHeroes, setVisitedHeroes] = useState<IHero[]>([]);
+	const [isFetching, setIsFetching] = useState(true);
 
 	const onClickVisited = (hero: IHero) => {
-		if (!visitedHero.some(el => el.name === hero.name)) {
-			return setVisitedHero(prev => prev.concat(hero));
+		const isVisitedHero = visitedHeroes.some(el => el.name === hero.name);
+
+		if (!isVisitedHero) {
+			return setVisitedHeroes(prev => prev.concat(hero));
 		}
+
 		return;
 	};
 
@@ -22,21 +24,17 @@ export const App = () => {
 		(async () => {
 			const response = await getPeopleFetch();
 			setCurrentPeople(response.results);
-			const responsePlanets = await getPlanetsFetch();
-			setPlanets(responsePlanets.results);
-			const responseFilms = await getFilmsFetch();
-			setFilms(responseFilms.results);
+			setIsFetching(false);
 		})();
 	}, []);
 
 	return (
 		<Context.Provider
 			value={{
-				currentPeople: currentPeople,
-				onClickVisited: onClickVisited,
-				visitedHero: visitedHero,
-				planets: planets,
-				films: films
+				currentPeople,
+				onClickVisited,
+				visitedHeroes,
+				isFetching
 			}}
 		>
 			<BrowserRouter>

@@ -1,0 +1,30 @@
+@import '../../style/mixins.scss';
+@import '../../style/variables.scss';
+
+.hero {
+	@include displayFlexCenter(column);
+	padding-top: 50px;
+
+	.title {
+		@include font(50px, 16px);
+		color: $colorHero;
+		text-shadow: $colorHero 0 0 30px;
+	}
+	p {
+		color: $colorHeroInfo;
+	}
+
+	button {
+		margin-top: 50px;
+		@include sizeBlock(200px, 50px);
+		@include button($bgButtonHero, $colorHero, $colorHero);
+
+		&:hover {
+			@include buttonHover(
+				$bgButtonHeroHover,
+				$colorButtonHover,
+				$colorHero
+			);
+		}
+	}
+}

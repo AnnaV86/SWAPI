@@ -1,9 +1,8 @@
 import React, { FC, useContext } from 'react';
-import { IHero } from '../../../models';
+import { IHero } from '../../../../../models';
 import { useNavigate } from 'react-router-dom';
-
 import style from './cardHero.module.scss';
-import { Context } from '../../../contexts/Context';
+import { Context } from '../../../../../contexts/Context';
 
 interface ICardHero {
 	hero: IHero;
